@@ -18,10 +18,10 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: var(--dark-text);
-    background-color: var(--background-light);
+    margin: 0;
+    font-family: 'Inter', 'Poppins', Arial, sans-serif;
+    background: #f6f8fa;
+    color: #222;
     overflow-x: hidden; /* Evita scroll horizontal em excesso */
 }
 
@@ -71,6 +71,25 @@ a:hover {
     text-decoration: none;
 }
 
+/* Header */
+.header {
+    background: #2563eb;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
 /* Navbar */
 .navbar {
     display: flex;
@@ -85,12 +104,6 @@ a:hover {
     left: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.navbar .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--light-text);
 }
 
 .nav-links {
@@ -371,6 +384,153 @@ footer {
     margin-top: 50px;
 }
 
+.cta button {
+    background: #22c55e;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(34,197,94,0.08);
+    transition: background 0.2s;
+}
+
+.cta button#loginBtn {
+    background: #2563eb;
+}
+
+.cta button:hover {
+    background: #0ea5e9;
+}
+
+.banner {
+    background: #2563eb;
+    color: #fff;
+    padding: 3rem 2rem 2rem 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section, aside {
+    flex: 1 1 300px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+}
+
+.card {
+    background: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    transition: box-shadow 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(37,99,235,0.12);
+}
+
+.card .logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e0e7ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.card .nome {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card .setor {
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+.card .descricao {
+    font-size: 0.95rem;
+    color: #334155;
+}
+
+.card .btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 0.4rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+}
+
+.card .btn:hover {
+    background: #0ea5e9;
+}
+
+.eventos ul {
+    list-style: none;
+    padding: 0;
+}
+
+.eventos li {
+    background: #f9fafb;
+    border-radius: 8px;
+    margin-bottom: 0.7rem;
+    padding: 0.7rem 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.eventos li .data {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.footer {
+    background: #f3f4f6;
+    color: #64748b;
+    text-align: center;
+    padding: 1.2rem 0 0.5rem 0;
+    font-size: 1rem;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 2rem;
+}
+
 /* Responsividade (Básico) */
 @media screen and (max-width: 768px) {
     .navbar {
@@ -441,6 +601,15 @@ footer {
 
     .project-grid {
         grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    main {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    section, aside {
+        margin-bottom: 1rem;
+        padding: 1rem;
     }
 }
 

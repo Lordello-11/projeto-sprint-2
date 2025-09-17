@@ -101,6 +101,72 @@ const handleRegister = () => {
     }
 };
 
+// Dados fictícios para protótipo
+const empresas = [
+    { nome: 'TechHub', setor: 'TI', descricao: 'Soluções inovadoras para empresas.', logo: 'T' },
+    { nome: 'AgroMais', setor: 'Agronegócio', descricao: 'Conectando produtores e compradores.', logo: 'A' },
+    { nome: 'ConstruaJá', setor: 'Construção', descricao: 'Projetos de engenharia e arquitetura.', logo: 'C' },
+];
+const projetos = [
+    { nome: 'Plataforma B2B', empresa: 'TechHub', descricao: 'Marketplace para empresas.', status: 'Em andamento' },
+    { nome: 'Feira Agro 2025', empresa: 'AgroMais', descricao: 'Evento anual do setor.', status: 'Concluído' },
+    { nome: 'App Obras', empresa: 'ConstruaJá', descricao: 'Gestão de obras em tempo real.', status: 'Em andamento' },
+];
+const eventos = [
+    { nome: 'Rodada de Negócios', data: '25/09/2025', local: 'São Paulo' },
+    { nome: 'Workshop Inovação', data: '10/10/2025', local: 'Online' },
+    { nome: 'Feira Agro', data: '05/11/2025', local: 'Ribeirão Preto' },
+];
+
+function renderEmpresas() {
+    const el = document.getElementById('empresasDestaque');
+    el.innerHTML = empresas.map(e => `
+        <div class="card">
+            <div class="logo">${e.logo}</div>
+            <div class="nome">${e.nome}</div>
+            <div class="setor">${e.setor}</div>
+            <div class="descricao">${e.descricao}</div>
+            <button class="btn">Ver perfil</button>
+        </div>
+    `).join('');
+}
+function renderProjetos() {
+    const el = document.getElementById('projetosRecentes');
+    el.innerHTML = projetos.map(p => `
+        <div class="card">
+            <div class="nome">${p.nome}</div>
+            <div class="setor">${p.empresa}</div>
+            <div class="descricao">${p.descricao}</div>
+            <div class="setor">Status: ${p.status}</div>
+            <button class="btn">Ver projeto</button>
+        </div>
+    `).join('');
+}
+function renderEventos() {
+    const el = document.getElementById('eventosProximos');
+    el.innerHTML = eventos.map(ev => `
+        <li>
+            <span class="data">${ev.data}</span>
+            <span>${ev.nome}</span>
+            <span>${ev.local}</span>
+        </li>
+    `).join('');
+}
+renderEmpresas();
+renderProjetos();
+renderEventos();
+
+// Navegação fake para protótipo
+const navLinks = document.querySelectorAll('.nav a');
+navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        // Aqui você pode implementar navegação SPA ou carregar outras páginas
+        alert('Protótipo: navegação para ' + link.textContent);
+    });
+});
 
 // Inicializa as funções quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
