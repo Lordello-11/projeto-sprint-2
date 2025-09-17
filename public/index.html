@@ -8,6 +8,11 @@
     <link rel="icon" href="logo.png">
     <style>
         .nav a { color: #fff !important; }
+        .modal-bg {position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.18);display:flex;align-items:center;justify-content:center;z-index:1000;}
+        .modal {background:#fff;padding:2rem 1.5rem;border-radius:16px;box-shadow:0 4px 24px rgba(37,99,235,0.12);min-width:320px;max-width:90vw;position:relative;}
+        .modal input {font-size:1rem;display:block;width:100%;margin-bottom:1rem;padding:0.7rem;}
+        .modal .btn {width:100%;margin-top:0.7rem;}
+        .modal .close {background:none;border:none;cursor:pointer;position:absolute;top:10px;right:10px;font-size:1.2rem;}
     </style>
 </head>
 <body>
@@ -61,6 +66,29 @@
         </div>
         <div>© 2025 Negocie+</div>
     </footer>
-    <script src="script.js"></script>
+    <script>
+    function showModal(tipo) {
+        const modal = document.createElement('div');
+        modal.className = 'modal-bg';
+        modal.innerHTML = `
+            <div class="modal">
+                <button class="close">&times;</button>
+                <h2>${tipo === 'cadastro' ? 'Cadastrar Empresa' : 'Entrar'}</h2>
+                <form>
+                    ${tipo === 'cadastro' ? `<input type='text' placeholder='Nome da empresa' required>` : ''}
+                    <input type='email' placeholder='Email' required>
+                    <input type='password' placeholder='Senha' required>
+                    <button class='btn' type='submit'>${tipo === 'cadastro' ? 'Cadastrar' : 'Entrar'}</button>
+                </form>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        modal.querySelector('.close').onclick = () => modal.remove();
+        modal.onclick = e => { if(e.target === modal) modal.remove(); };
+        modal.querySelector('form').onsubmit = e => { e.preventDefault(); modal.remove(); };
+    }
+    document.getElementById('loginBtn').onclick = () => showModal('login');
+    document.getElementById('cadastroBtn').onclick = () => showModal('cadastro');
+    </script>
 </body>
 </html>
