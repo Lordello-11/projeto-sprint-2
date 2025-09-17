@@ -13,18 +13,54 @@
         .modal input {font-size:1rem;display:block;width:100%;margin-bottom:1rem;padding:0.7rem;}
         .modal .btn {width:100%;margin-top:0.7rem;}
         .modal .close {background:none;border:none;cursor:pointer;position:absolute;top:10px;right:10px;font-size:1.2rem;}
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .line1, .line2, .line3 {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: #333;
+            }
+            .nav-links.nav-active {
+                display: flex;
+            }
+            .burger {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="logo">Negocie+</div>
         <nav class="nav">
-            <a href="index.html" class="active">Home</a>
-            <a href="explorar.html">Explorar</a>
-            <a href="projetos.html">Projetos</a>
-            <a href="noticias.html">Notícias</a>
-            <a href="eventos.html">Eventos</a>
-            <a href="contato.html">Contato</a>
+            <div class="burger" id="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="active">Home</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="projetos.html">Projetos</a>
+                <a href="noticias.html">Notícias</a>
+                <a href="eventos.html">Eventos</a>
+                <a href="contato.html">Contato</a>
+            </div>
         </nav>
         <div class="cta">
             <button id="loginBtn">Entrar</button>
@@ -89,6 +125,14 @@
     }
     document.getElementById('loginBtn').onclick = () => showModal('login');
     document.getElementById('cadastroBtn').onclick = () => showModal('cadastro');
+
+    // Menu hamburguer responsivo
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger.onclick = function() {
+        navLinks.classList.toggle('nav-active');
+        burger.classList.toggle('toggle');
+    }
     </script>
 </body>
 </html>

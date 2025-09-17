@@ -10,13 +10,24 @@
     <header class="header">
         <div class="logo">Negocie+</div>
         <nav class="nav">
-            <a href="index.html">Home</a>
-            <a href="explorar.html">Explorar</a>
-            <a href="projetos.html">Projetos</a>
-            <a href="noticias.html">Notícias</a>
-            <a href="eventos.html" class="active">Eventos</a>
-            <a href="contato.html">Contato</a>
+            <div class="burger" id="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="projetos.html">Projetos</a>
+                <a href="noticias.html">Notícias</a>
+                <a href="eventos.html" class="active">Eventos</a>
+                <a href="contato.html">Contato</a>
+            </div>
         </nav>
+        <div class="cta">
+            <button id="loginBtn">Entrar</button>
+            <button id="cadastroBtn">Cadastrar Empresa</button>
+        </div>
     </header>
     <main>
         <section class="eventos">
@@ -38,5 +49,13 @@
         <div>© 2025 Negocie+</div>
     </footer>
     <script src="script.js"></script>
+    <script>
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+        burger.onclick = function() {
+            navLinks.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        }
+    </script>
 </body>
 </html>
