@@ -113,36 +113,42 @@
         <div>© 2025 Negocie+</div>
     </footer>
     <script>
-    function showModal(tipo) {
-        const modal = document.createElement('div');
-        modal.className = 'modal-bg';
-        modal.innerHTML = `
-            <div class="modal">
-                <button class="close">&times;</button>
-                <h2>${tipo === 'cadastro' ? 'Cadastrar Empresa' : 'Entrar'}</h2>
-                <form>
-                    ${tipo === 'cadastro' ? `<input type='text' placeholder='Nome da empresa' required>` : ''}
-                    <input type='email' placeholder='Email' required>
-                    <input type='password' placeholder='Senha' required>
-                    <button class='btn' type='submit'>${tipo === 'cadastro' ? 'Cadastrar' : 'Entrar'}</button>
-                </form>
-            </div>
-        `;
-        document.body.appendChild(modal);
-        modal.querySelector('.close').onclick = () => modal.remove();
-        modal.onclick = e => { if(e.target === modal) modal.remove(); };
-        modal.querySelector('form').onsubmit = e => { e.preventDefault(); modal.remove(); };
-    }
-    document.getElementById('loginBtn').onclick = () => showModal('login');
-    document.getElementById('cadastroBtn').onclick = () => showModal('cadastro');
+    document.addEventListener('DOMContentLoaded', function() {
+        function showModal(tipo) {
+            const modal = document.createElement('div');
+            modal.className = 'modal-bg';
+            modal.innerHTML = `
+                <div class="modal">
+                    <button class="close">&times;</button>
+                    <h2>${tipo === 'cadastro' ? 'Cadastrar Empresa' : 'Entrar'}</h2>
+                    <form>
+                        ${tipo === 'cadastro' ? `<input type='text' placeholder='Nome da empresa' required>` : ''}
+                        <input type='email' placeholder='Email' required>
+                        <input type='password' placeholder='Senha' required>
+                        <button class='btn' type='submit'>${tipo === 'cadastro' ? 'Cadastrar' : 'Entrar'}</button>
+                    </form>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            modal.querySelector('.close').onclick = () => modal.remove();
+            modal.onclick = e => { if(e.target === modal) modal.remove(); };
+            modal.querySelector('form').onsubmit = e => { e.preventDefault(); modal.remove(); };
+        }
+        var loginBtn = document.getElementById('loginBtn');
+        var cadastroBtn = document.getElementById('cadastroBtn');
+        if(loginBtn) loginBtn.onclick = () => showModal('login');
+        if(cadastroBtn) cadastroBtn.onclick = () => showModal('cadastro');
 
-    // Menu hamburguer responsivo
-    const burger = document.getElementById('burger');
-    const navLinks = document.getElementById('navLinks');
-    burger.onclick = function() {
-        navLinks.classList.toggle('nav-active');
-        burger.classList.toggle('toggle');
-    }
+        // Menu hamburguer responsivo
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+        if(burger && navLinks) {
+            burger.onclick = function() {
+                navLinks.classList.toggle('nav-active');
+                burger.classList.toggle('toggle');
+            }
+        }
+    });
     </script>
 </body>
 </html>
