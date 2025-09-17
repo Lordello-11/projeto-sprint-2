@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade | Negocie+</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Negocie+</div>
+        <nav class="nav">
+            <div class="burger" id="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="projetos.html">Projetos</a>
+                <a href="noticias.html">Notícias</a>
+                <a href="eventos.html">Eventos</a>
+                <a href="contato.html">Contato</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="ajuda.html">Ajuda</a>
+                <a href="privacidade.html" class="active">Política de Privacidade</a>
+            </div>
+        </nav>
+        <div class="cta">
+            <button id="loginBtn">Entrar</button>
+            <button id="cadastroBtn">Cadastrar Empresa</button>
+        </div>
+    </header>
+    <main>
+        <section class="privacidade">
+            <h2>Política de Privacidade</h2>
+            <p>Seus dados são protegidos e usados apenas para fins de networking empresarial. Veja detalhes em nossa política.</p>
+        </section>
+    </main>
+    <footer class="footer">
+        <div>
+            <a href="sobre.html">Sobre</a> |
+            <a href="ajuda.html">Ajuda</a> |
+            <a href="privacidade.html">Política de Privacidade</a> |
+            <a href="contato.html">Contato</a>
+            |
+            <a href="explorar.html">Explorar</a> |
+            <a href="projetos.html">Projetos</a> |
+            <a href="noticias.html">Notícias</a> |
+            <a href="eventos.html">Eventos</a>
+        </div>
+        <div>© 2025 Negocie+</div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+        burger.onclick = function() {
+            navLinks.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        }
+    </script>
+</body>
+</html>
