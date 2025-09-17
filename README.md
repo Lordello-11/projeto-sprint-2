@@ -16,6 +16,16 @@ projeto-sprint-2/
   README.md
 ```
 
+## Sobre o style.css
+O arquivo `style.css` é responsável por toda a estilização do site, incluindo:
+- Tema escuro moderno
+- Layout responsivo para dispositivos móveis
+- Menu hambúrguer animado
+- Animações de transição e hover
+- Ajustes de espaçamento, alinhamento e visual dos elementos
+
+Se quiser personalizar o visual, basta editar esse arquivo.
+
 ## Publicação no GitHub Pages
 1. Suba todos os arquivos do site na branch `main` ou `master` do seu repositório.
 2. No GitHub, acesse as configurações do repositório.
