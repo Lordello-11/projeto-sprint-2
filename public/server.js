@@ -106,5 +106,5 @@ app.post('/api/login', async (req, res) => {
 
 // Inicia o servidor e o faz "escutar" a porta especificada
 app.listen(PORT, () => {
-    console.log (Servidor rodando em http://localhost:${PORT});
+    console.log (Servidor, rodando em https://localhost:3000)
 });
