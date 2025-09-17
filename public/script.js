@@ -347,7 +347,13 @@ function delegaPerfil() {
     });
 }
 delegaPerfil();
-navegar('#home');
+
+// Suporte à navegação SPA via hashchange
+window.addEventListener('hashchange', () => {
+    navegar(window.location.hash || '#home');
+});
+// Garante renderização inicial correta
+navegar(window.location.hash || '#home');
 
 // Inicializa as funções quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
